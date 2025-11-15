@@ -1,17 +1,19 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import './index.css';
-import App from './App.jsx';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ProductPage from './pages/ProductPage.jsx';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ProductPage from "./pages/ProductPage.jsx";
+import Navbar from "./components/Navbar.jsx";
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Router>
+      <Navbar />
       <Routes>
-        <Route path={'/'} element={<App />}/>
-        <Route path={'/product-details/:id'} element={<ProductPage />}/>
+        <Route path={"/"} element={<App />} />
+        <Route path={"/product-details/:id"} element={<ProductPage />} />
       </Routes>
     </Router>
   </StrictMode>,
-)
+);

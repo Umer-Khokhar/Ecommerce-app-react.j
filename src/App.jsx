@@ -19,7 +19,7 @@ function App() {
     return <h1>Error: {error}</h1>;
   }
   return (
-    <div className="grid grid-col-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4">
+    <div className="grid mt-20 grid-col-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-content-center mx-auto max-w-[1400px] md:place-items-start gap-4 p-4">
       {products.map((product) => (
         <ProductCard
           title={product.title}
