@@ -2,6 +2,7 @@ import React from "react";
 import Checkout from "./Checkout";
 
 const ProductDetails = ({ image, category, title, description, price }) => {
+  const product = { image, category, title, description, price };
   return (
     <div className="flex flex-col md:flex-row items-start px-8 justify-between gap-12 my-20">
       <div className="image w-full md:w-[600px] h-full md:h-[600px] bg-amber-600 px-6 pt-6 flex items-center justify-center">
@@ -21,7 +22,7 @@ const ProductDetails = ({ image, category, title, description, price }) => {
             <p>{description}</p>
           </div>
         </div>
-        <Checkout />
+        <Checkout product={product} />
       </div>
     </div>
   );

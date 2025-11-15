@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import axios from "axios";
+import { Stethoscope } from "lucide-react";
 
 export const useAxiosStore = create((set) => ({
   products: [],

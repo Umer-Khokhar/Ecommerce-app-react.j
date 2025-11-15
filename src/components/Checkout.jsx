@@ -1,7 +1,7 @@
 import { useProductStore } from "../../store/store";
 import { ShoppingCart } from "lucide-react";
 
-const Checkout = () => {
+const Checkout = ({ product }) => {
   const { count, increment, decrement } = useProductStore();
   const sizes = ["S", "M", "L", "XL", "XXL"];
   return (
