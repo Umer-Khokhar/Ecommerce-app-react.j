@@ -3,6 +3,9 @@ import { ShoppingCart } from "lucide-react";
 
 const Checkout = ({ product }) => {
   const { count, increment, decrement } = useProductStore();
+  const addToCart = useProductStore((state) => state.addToCart);
+  const cart = useProductStore((state) => state.cart);
+  console.log(cart);
   const sizes = ["S", "M", "L", "XL", "XXL"];
   return (
     <div>
@@ -38,7 +41,10 @@ const Checkout = ({ product }) => {
           </button>
         </div>
         <div className="checkout">
-          <button className="py-4 w-full flex items-center justify-center gap-3 cursor-pointer hover:bg-amber-600 px-4 bg-amber-500 rounded-md text-lg text-white font-semibold">
+          <button
+            onClick={() => addToCart(product)}
+            className="py-4 w-full flex items-center justify-center gap-3 cursor-pointer hover:bg-amber-600 px-4 bg-amber-500 rounded-md text-lg text-white font-semibold"
+          >
             <ShoppingCart className="w-6 h-6 font-bold text-white" />
             Add to Cart
           </button>

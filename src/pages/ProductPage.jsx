@@ -18,17 +18,10 @@ const ProductPage = () => {
     return <h1>Loading...</h1>;
   }
   const product = Products.find((prod) => prod.id === parseInt(id));
-  const { title, description, price, category, image } = product;
   return (
     <div className="max-w-[1440px]  mt-20 mx-auto">
-      <BreadCrum title={title} category={category} />
-      <ProductDetails
-        title={title}
-        description={description}
-        price={price}
-        category={category}
-        image={image}
-      />
+      <BreadCrum title={product.title} category={product.category} />
+      <ProductDetails product={product} />
     </div>
   );
 };
