@@ -31,8 +31,9 @@ const Sidebar = () => {
                 <div>
                   <h4 className="text-xl font-semibold">{item.title}</h4>
                   <div className="flex items-center gap-4">
-                    <p>${item.price}</p>
+                    <p>${item.price * item.quantity}</p>
                     <p>x{item.quantity}</p>
+                    <p>Size: {item.size}</p>
                   </div>
                 </div>
                 <Delete

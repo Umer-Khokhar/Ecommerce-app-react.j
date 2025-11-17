@@ -34,6 +34,9 @@ export const useProductStore = create((set) => ({
   },
   cart: [],
   productCount: 0,
+  sizes: ["S", "M", "L", "XL", "XXL"],
+  selectedSize: "",
+  selectSize: (size) => set({ selectedSize: size }),
   addToCart: (product) => {
     set((state) => {
       let exist = state.cart.find((item) => item.id === product.id);
@@ -41,13 +44,18 @@ export const useProductStore = create((set) => ({
         return {
           cart: state.cart.map((item) =>
             item.id === product.id
-              ? { ...item, quantity: state.count + 1 }
+              ? { ...item, quantity: state.count, size: state.selectedSize }
               : item,
           ),
         };
       }
       return {
-        cart: [...state.cart, { ...product, quantity: state.count }],
+        selectedSize: "",
+        cart: [
+          ...state.cart,
+          { ...product, quantity: state.count, size: state.selectedSize },
+        ],
+        count: 1,
         productCount: state.productCount + 1,
       };
     });

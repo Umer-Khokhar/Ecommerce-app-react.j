@@ -4,9 +4,15 @@ import { ShoppingCart } from "lucide-react";
 const Checkout = ({ product }) => {
   const { count, increment, decrement } = useProductStore();
   const addToCart = useProductStore((state) => state.addToCart);
+  const sizes = useProductStore((state) => state.sizes);
   const cart = useProductStore((state) => state.cart);
+  const selectSize = useProductStore((state) => state.selectSize);
+  const selectedSize = useProductStore((state) => state.selectedSize);
+  const handleSelect = (size) => {
+    selectSize(size);
+    console.log("size Selected");
+  };
   console.log(cart);
-  const sizes = ["S", "M", "L", "XL", "XXL"];
   return (
     <div>
       <div className="sizes mb-8">
@@ -14,7 +20,8 @@ const Checkout = ({ product }) => {
         <div className="flex items-center gap-3">
           {sizes.map((size, index) => (
             <button
-              className="border w-full h-8 border-gray-300 rounded-md cursor-pointer hover:bg-black hover:text-white transition-all duration-200"
+              onClick={() => handleSelect(size)}
+              className={`${selectedSize === size ? "bg-black text-white" : ""} border  w-full h-8 border-gray-300 rounded-md cursor-pointer hover:bg-black hover:text-white transition-all duration-200`}
               key={index}
             >
               {size}
