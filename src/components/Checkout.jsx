@@ -10,7 +10,6 @@ const Checkout = ({ product }) => {
   const selectedSize = useProductStore((state) => state.selectedSize);
   const handleSelect = (size) => {
     selectSize(size);
-    console.log("size Selected");
   };
   console.log(cart);
   return (
